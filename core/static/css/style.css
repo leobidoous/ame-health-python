@@ -1,17 +1,60 @@
 html, body {height:100%;}
 
+.form-navbar
+{
+	padding: 10px;
+	margin-right: 10px;
+}
+#content {
+    min-height:100%;
+    width:100%;
+}
+
+.content-inside 
+{
+	overflow:hidden;
+	margin-top: 20px;
+	padding: 40px 40px 40px 40px;
+	margin: 20px;
+}
+
+.cadastro-core
+{
+	align-items: center;	
+	background-color: #d3d3d3;
+	padding: 30px;
+}
+
+#vagas .vaga
+{
+	border: 2px solid;
+	align-items: center;	
+	background-color: #d3d3d3;
+	padding: 15px;
+}
+
+.paginacao
+{
+	margin-top: 20px;
+	align-content: center;
+}
 
 /* footer */
 footer
 {
-	position:absolute;
-    bottom:0;
-    width:100%;
+	margin-top: 20px;
+	position: relative;
+	padding-top: 15px;
+    bottom: 0px;
+    width: 100%;
     background-color: #d3d3d3;
-    padding: 10px;
 }
 
-.content {overflow:hidden;}
-.aside {width:200px;}
-.fleft {float:left;}
-.fright {float:right;}
+
+
+#login
+{
+	align-items: center;	
+	background-color: #d3d3d3;
+	padding: 30px;
+}

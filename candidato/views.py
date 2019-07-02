@@ -7,4 +7,7 @@ def candidato_view(request):
     return render(request, 'candidato/index.html')
 
 def cadastro_candidato_view(request):
-    return render(request, 'candidato/cadastro_candidato.html')
+    form = CandidatoForm()
+    context = {'form': form}
+
+    return render(request, 'candidato/cadastro_candidato.html', context)

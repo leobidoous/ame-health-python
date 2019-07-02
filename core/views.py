@@ -1,11 +1,13 @@
-from django.shortcuts import render
+from vaga.models import VagaModel
+from django.views.generic import TemplateView, ListView
+
 
 # Create your views here.
-def home(request):
-    return render(request, 'core/index.html')
+class HomeListView(ListView):
+    model = VagaModel
+    paginate_by = 5
+    template_name = 'core/index.html'
 
-def login(request):
-    return render(request, 'core/login.html')
 
-def cadastro(request):
-    return render(request, 'core/cadastro.html')
+class CadastroTemplateView(TemplateView):
+    template_name = 'core/cadastro.html'

@@ -1,52 +1,81 @@
 {% extends "core/base_view.html" %}
 {% load static %}
 {% block content %}
-<div class="content">
+<div class="content-inside ">
+  <div class="row">
+    <div class="col-md-12">
+      <form>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Buscar vagas" aria-label="Buscar vagas" aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+          </div>
+        </div>
 
-    <div id="bloco1" class="container">
-      <div id="bloco2" class="row" style="border:1px solid;, height: 100px">
-        <div class="col-md-12">
-
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Buscar vaga" aria-label="Buscar vaga" aria-describedby="button-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+        <div id="vagas">
+          {% if not object_list %}
+          <div class="vaga">
+            <div class="row">
+              <div class="col-md-12">
+                <h5>Nenhuma vaga disponível.</h5>
+              </div>
             </div>
           </div>
-
-          <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+          {% endif %}
+          {% for vaga in object_list %}
+          <div class="vaga">
+            <div class="row">
+              <div class="col-md-12">
+                <h3>{{ vaga.title }}</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <h4>{{ vaga.enterprise }}</h4>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <p>{{ vaga.descrition }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6" align="left">
+                <span>{{ vaga.state }}</span>
+                <span>-</span>
+                <span>{{ vaga.city }}</span>
+              </div>
+              <div class="col-md-6" align="right">
+                <p>{{ vaga.dt_create.date }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
         </div>
-      </div> 
-      <!-- FIM DA ROW -->
+
+      </form>
+
+      <!-- FIM FORM -->
+      <div class="paginacao">
+        <nav aria-label="...">
+          <ul class="pagination">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page">
+              <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- FIM PAGINAÇÃO -->
+
     </div>
+  </div>
 </div>
 {% endblock %}

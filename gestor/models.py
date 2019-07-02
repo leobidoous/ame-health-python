@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class GestorModel(models.Model):
     name = models.CharField('Nome', max_length=255)
@@ -11,3 +12,6 @@ class GestorModel(models.Model):
         verbose_name = 'Gestor'
         verbose_name_plural = 'Gestores'
         ordering = ['name']
+
+    def __str__(self):
+        return self.name

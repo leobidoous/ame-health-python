@@ -1,15 +1,16 @@
 {% extends "core/base_view.html" %}
 {% load static %}
 {% block content %}
-<div class="content">
+<div class="content-inside">
 
-  <div class="container">
-    <button>
-      <a href="{% url 'gestor:cadastro_gestor' %}">GESTOR</a>
-    </button>
-    <button>
-      <a href="{% url 'candidato:cadastro_candidato' %}">CANDIDATO</a>
-    </button>
+  <div class="cadastro-core">
+  	<button type="button" class="btn btn-outline-info btn-lg btn-block">
+  		<a class="navbar-brand" href="{% url 'gestor:cadastro_gestor' %}">GESTOR</a>
+  	</button>
+
+  	<button type="button" class="btn btn-outline-info btn-lg btn-block">
+  		<a class="navbar-brand" href="{% url 'candidato:cadastro_candidato' %}">CANDIDATO</a>
+  	</button>
   </div>
 
 </div>
