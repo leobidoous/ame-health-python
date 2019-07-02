@@ -16,8 +16,13 @@ Including another URLconf
 from django.urls import path, include
 from django.contrib import admin
 
+
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', include('core.urls', namespace='core')),
+
+    path('candidato', include('candidato.urls', namespace='candidato')),
+    path('gestor', include('gestor.urls', namespace='gestor')),
+    # path('vaga', include('vaga.urls', namespace='vaga')),
 ]
 

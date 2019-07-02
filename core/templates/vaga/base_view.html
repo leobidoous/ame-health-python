@@ -12,7 +12,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="{% static 'img/favicon/favicon.png' %}" />
 
-    <title>Leonardo Bidó</title>
+    <title>candidato</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -26,8 +26,8 @@
   <body id="page-top">
 
     <!-- Navbar -->
-    <nav id="navegation" class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{% url 'core:home'%}">Vagas RH</a>
+    <nav id="navegation" class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">leonardo</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -35,18 +35,35 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="admin">ADM <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <a class="btn btn-outline-warning my-2 my-sm-0" href="{% url 'core:login'%}">Login</a>
-          <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'core:cadastro'%}">Cadastre-se</a>
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
     </nav>
 
     <!-- body -->
-    <div id="content" class="container">
+    <div id="content">
     	{% block content %}
 		  {% endblock %}
     </div>
@@ -56,10 +73,26 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Developed by <a href="https://github.com/leobidoous" target="_blank">Leonardo Bidó.</a></span>
+            <span class="copyright">Copyright &copy; Developed by Leonardo Bidó.</span>
           </div>
           <div class="col-md-4">
-            
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a target=“_blank” href="https://twitter.com/leobidoous">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a target=“_blank” href="https://www.facebook.com/leobido">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a target=“_blank” href="https://www.linkedin.com/in/leonardo-emilly-dias-santos-bid%C3%B3-6a2079163/">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
           </div>
           <div class="col-md-4">
             <ul class="list-inline quicklinks">

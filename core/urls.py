@@ -22,9 +22,5 @@ urlpatterns = [
     path('', home, name='home'),
     path('login', login, name='login'),
     path('cadastro', cadastro, name='cadastro'),
-
-    path('candidato', include('candidato.urls', namespace='candidato')),
-    # path('gestor', include('gestor.urls')),
-    # path('vaga', include('vaga.urls')),
 ]
 

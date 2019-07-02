@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.urls import path
 from gestor.views import *
+app_name = 'gestor'
+
 
 urlpatterns = [
-    path('gestor', gestor, name='home_gestor'),
+    path('', gestor, name='home_gestor'),
+    path('cadastro_gestor', cadastro_gestor_view, name='cadastro_gestor'),
 
 ]

@@ -19,6 +19,7 @@ app_name = 'candidato'
 
 
 urlpatterns = [
-    path('candidato', candidato_view, name='home_candidato'),
+    path('', candidato_view, name='home_candidato'),
+    path('cadastro_candidato', cadastro_candidato_view, name='cadastro_candidato'),
 
 ]
