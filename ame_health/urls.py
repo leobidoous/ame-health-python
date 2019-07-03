@@ -21,8 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', include('core.urls', namespace='core')),
 
-    path('candidato', include('candidato.urls', namespace='candidato')),
-    path('gestor', include('gestor.urls', namespace='gestor')),
-    # path('vaga', include('vaga.urls', namespace='vaga')),
+    path('vaga/', include('vaga.urls', namespace='vaga')),
 ]
 

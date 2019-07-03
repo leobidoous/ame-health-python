@@ -50,7 +50,18 @@ footer
     background-color: #d3d3d3;
 }
 
+.content-inside > .cabecalho
+{
+	align-items: center;
+	background-color: #d3d3d3;
+}
 
+.perfil-gestor
+{
+	border: 1px solid;
+	background-color: #d3d3d3;
+	padding: 10px;
+}
 
 #login
 {

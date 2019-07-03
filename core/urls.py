@@ -21,8 +21,11 @@ app_name = 'core'
 
 urlpatterns = [
     path('', HomeListView.as_view(), name='home'),
-    path('login', LoginView.as_view(template_name='core/login.html'), name='login'),
-    path('logout', LogoutView.as_view(next_page='core:home'), name='logout'),
-    path('cadastro', CadastroTemplateView.as_view(), name='cadastro'),
+    path('login/', LoginView.as_view(template_name='core/login.html'), name='login'),
+    path('logout/', LogoutView.as_view(next_page='core:home'), name='logout'),
+    path('perfil/', PerfilTemplateView.as_view(), name='perfil'),
+    path('cadastro_gestor/', CadastroGestorFormView.as_view(), name='cadastro_gestor'),
+    path('cadastro_candidato/', CadastroCandidatoFormView.as_view(), name='cadastro_candidato'),
+
 ]
 

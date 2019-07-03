@@ -4,14 +4,14 @@
 <div class="content-inside ">
   <div class="row">
     <div class="col-md-12">
-      <form>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Buscar vagas" aria-label="Buscar vagas" aria-describedby="button-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
+      <form class="form-group">
+        <div class="input-group input-group-lg mb-3">
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Buscar vagas">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-dark" type="submit" id="inputGroup-sizing-lg">Buscar</button>
           </div>
         </div>
-
+        <h1>{{user.cpf}}</h1>
         <div id="vagas">
           {% if not object_list %}
           <div class="vaga">

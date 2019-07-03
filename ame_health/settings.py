@@ -40,9 +40,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
 
     # apps
+    'pessoa',
     'core',
-    'gestor',
-    'candidato',
     'vaga',
 ]
 
@@ -139,6 +138,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 LOGIN_URL = 'core:login'
 LOGIN_REDIRECT_URL = 'core:home'
 LOGOUT_URL = 'core:home'
+AUTH_USER_MODEL = 'pessoa.User'
 
 try:
     from .local_settings import *
