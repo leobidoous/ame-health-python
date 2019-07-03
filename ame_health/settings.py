@@ -124,6 +124,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Configurações Heroku
 db_from_env = dj_database_url.config(conn_max_age=500)
@@ -133,8 +139,7 @@ ALLOWED_HOSTS = ['*']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDER_PROTO', 'https')
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-
+# auth
 LOGIN_URL = 'core:login'
 LOGIN_REDIRECT_URL = 'core:home'
 LOGOUT_URL = 'core:home'
