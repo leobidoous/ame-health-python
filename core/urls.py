@@ -21,11 +21,17 @@ app_name = 'core'
 
 urlpatterns = [
     path('', HomeListView.as_view(), name='home'),
-    path('login/', LoginView.as_view(template_name='core/login.html'), name='login'),
-    path('logout/', LogoutView.as_view(next_page='core:home'), name='logout'),
     path('perfil/', PerfilTemplateView.as_view(), name='perfil'),
-    path('cadastro_gestor/', CadastroGestorFormView.as_view(), name='cadastro_gestor'),
-    path('cadastro_candidato/', CadastroCandidatoFormView.as_view(), name='cadastro_candidato'),
+    path('logout/', LogoutView.as_view(next_page='core:home'), name='logout'),
+    path('login/', LoginView.as_view(template_name='core/login.html'), name='login'),
+
+    path('cadastro_gestor/', CadastroGestorCreateView.as_view(), name='cadastro_gestor'),
+    path('update_gestor/', UpdateGestorUpdateView.as_view(), name='update_gestor'),
+    path('update_password_gestor/', UpdatePasswordGestorFormVieW.as_view(), name='update_password_gestor'),
+
+    path('cadastro_candidato/', CadastroCandidatoCreateView.as_view(), name='cadastro_candidato'),
+    path('update_candidato/', UpdateCandidatoUpdateView.as_view(), name='update_candidato'),
+    path('update_password_candidato/', UpdatePasswordCandidatoFormVieW.as_view(), name='update_password_candidato'),
 
 ]
 

@@ -1,10 +1,22 @@
-{% extends "core/base_view.html" %}
-{% load static %}
+{% extends "core/perfil.html" %}
 {% load widget_tweaks %}
-{% block content %}
+
+{% block title_perfil_gestor_content %}
+<li class="breadcrumb-item active" aria-current="page">Cadastrar Pessoa</li>
+{% endblock %}
+
+{% block breadcrumb_perfil_gestor_content %}
+<a href="{% url 'core:perfil' %}" class="list-group-item">Minha Conta</a>
+<a href="#" class="list-group-item">Gerenciar Vagas</a>
+<a href="{% url 'core:update_gestor' %}" class="list-group-item">Alterar Dados</a>
+<a href="#" class="list-group-item">Alterar Senha</a>
+<a href="#" class="list-group-item active" aria-current="page">Cadastrar Pessoa</a>
+{% endblock %}
+
+{% block perfil_gestor_content %}
+{% if user.is_authenticated and user.type == '2' %}
+<h2 class="perfil-gestor">Cadastrar Pessoa</h2>
 <div class="content-inside">
-  <h1>{{user.type}}</h1>
-  {% if user.is_authenticated and user.type == '2' %}
     <div id="cadastro-candidato">
       <form method="POST">
         {% csrf_token %}
@@ -64,11 +76,12 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
+  </div>
   {% else  %}
+  <div class="content-inside">
     <div>
     <a class="btn btn-outline-info btn-lg btn-block" href="{% url 'core:login' %}">Você está deslogado. Realizar login?</a>
     </div>
-  {% endif %}
-      
-</div>
+  </div>
+{% endif %}  
 {% endblock %}

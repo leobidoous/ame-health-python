@@ -1,5 +1,4 @@
 # coding=utf-8
-
 from django.db import models
 from django.core import validators
 from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
@@ -7,9 +6,8 @@ import re
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-
     username = models.CharField(
-        'Apelido / Usuário', max_length=30, unique=True, validators=[
+        'Username', max_length=30, unique=True, validators=[
             validators.RegexValidator(
                 re.compile('^[\w.@+-]+$'),
                 'Informe um nome de usuário válido. '
@@ -19,21 +17,19 @@ class User(AbstractBaseUser, PermissionsMixin):
             )
         ], help_text='Um nome curto que será usado para identificá-lo de forma única na plataforma'
     )
-    name = models.CharField('Nome', max_length=255, blank=True)
-    email = models.EmailField('E-mail', unique=True)
-    is_staff = models.BooleanField('Equipe', default=False)
-    is_active = models.BooleanField('Ativo', default=True)
-    date_joined = models.DateTimeField('Data de Entrada', auto_now_add=True)
-
-    password = models.CharField('Senha', max_length=255)
+    name = models.CharField('Name', max_length=255, blank=False)
+    email = models.EmailField('E-mail Address', unique=True)
     cpf = models.CharField('CPF', max_length=14, unique=True)
+    is_staff = models.BooleanField('Team', default=False)
+    is_active = models.BooleanField('Active', default=True)
+    date_joined = models.DateTimeField('Date Joined', auto_now_add=True)
 
-    types = (('1', 'CANDIDATO'),
-             ('2', 'GESTOR'))
-    type = models.CharField('Tipo', max_length=10, choices=types, default='1')
+    types = (('1', 'Candidato'),
+             ('2', 'Gestor'))
+    type = models.CharField('Type', max_length=10, choices=types, default='1', blank=True)
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['cpf', 'email']
+    REQUIRED_FIELDS = ['name', 'cpf', 'email']
 
     objects = UserManager()
 

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path, include
 from django.contrib import admin
-
+app_name = 'ame_health'
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),

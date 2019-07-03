@@ -63,6 +63,13 @@ footer
 	padding: 10px;
 }
 
+.perfil-candidato
+{
+	border: 1px solid;
+	background-color: #d3d3d3;
+	padding: 10px;
+}
+
 #login
 {
 	align-items: center;	
