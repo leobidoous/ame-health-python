@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-{% if user.is_authenticated and user.type == '1' or user.type == '' %}
+{% if user.is_authenticated and user.type == 'Candidato' or user.type == '' %}
 <div id="perfil-candidato">
 	<div class="row">
 		<div class="col-md-12">
@@ -70,7 +70,7 @@
 	</div>
 	<!-- fim da row -->
 </div>
-{% elif user.is_authenticated and user.type == '2' %}
+{% elif user.is_authenticated and user.type == 'Gestor' %}
 <div id="perfil-gestor">
 	<div class="row">
 		<div class="col-md-12">

@@ -1,4 +1,5 @@
 from django.contrib.auth.forms import PasswordChangeForm
+from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView, FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from pessoa.forms import UserAdminCreationForm
@@ -46,7 +47,7 @@ class UpdatePasswordCandidatoFormVieW(LoginRequiredMixin, FormView):
 
 class VagaCandidatoListView(ListView):
     model = VagaModel
-    paginate_by = 5
+    # paginate_by = 5
     template_name = 'core/gerenciar_vagas_candidato.html'
 
 
@@ -113,6 +114,15 @@ class VagasGestorCreateView(LoginRequiredMixin, FormView):
 class VagaListView(ListView):
     model = VagaModel
     template_name = 'core/vaga_page.html'
+
+
+    def get_queryset(self, *args, **kwargs):
+        return VagaModel.objects.filter(slug=self.kwargs['slug'])
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(VagaListView, self).get_context_data(**kwargs)
+        context['vaga'] = get_object_or_404(VagaModel, slug=self.kwargs['slug'])
+        return context
 
 
 # GERAL ###################################################################

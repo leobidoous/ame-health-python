@@ -51,11 +51,22 @@ class CurriculoModel(models.Model):
     sexes = (('Masculino', 'Masculino'),
              ('Feminino', 'Feminino'),
              ('Outro', 'Outro'))
+
+    states = (('GO', 'GO'),
+              ('TO', 'TO'),
+              ('PA', 'PA'),
+              ('DF', 'DF'),
+              ('MS', 'MS'))
     name = models.CharField('Nome', max_length=255)
     cpf = models.CharField('CPF', max_length=14, unique=True)
     cel = models.CharField('Celular', max_length=14)
     birth = models.DateTimeField('Nascimento')
     genre = models.CharField('Gênero', max_length=10, choices=sexes, blank=True)
+    address = models.CharField('Endereço', max_length=255)
+    complement = models.CharField('Complemento', max_length=255)
+    city = models.CharField('Cidade', max_length=50)
+    state = models.CharField('Estado', max_length=2, choices=states)
+    cep = models.CharField('Gênero', max_length=8)
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     dt_create = models.DateTimeField('Criado em:', auto_now_add=True)
     dt_update = models.DateTimeField('Atualizado em:', auto_now=True)

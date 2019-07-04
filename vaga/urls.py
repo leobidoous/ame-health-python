@@ -14,6 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.urls import path
+
+from core.views import VagaListView
 from vaga.models import VagaModel
 from vaga.views import VagasView
 from rest_framework import routers, serializers, viewsets
@@ -41,6 +44,8 @@ app_name = 'vaga'
 urlpatterns = [
     url('', include(router.urls)),
     url('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url('rest_vagas/', VagasView.as_view(), name='rest_vagas')
+    url('rest_vagas/', VagasView.as_view(), name='rest_vagas'),
+    path('<slug:slug>/', VagaListView.as_view(), name='vaga_page'),
+
 ]
 

@@ -1,0 +1,40 @@
+{% extends "core/base_view.html" %}
+{% load static %}
+{% block content %}
+<div class="content-inside ">
+  <div>
+    <form class="form-group">
+      <fieldset>
+        <div class="form-group">
+          <label for="{{ vaga.id }}">Título</label>
+          <input class="form-control" type="" name="" value="{{ vaga.title }}" readonly="true">
+        </div>
+        <div class="form-group">
+          <label for="{{ vaga.id }}">Estado</label>
+          <input class="form-control" type="" name="" value="{{ vaga.state }}" readonly="true">
+        </div>
+        <div class="form-group">
+          <label for="{{ vaga.id }}">Cidade</label>
+          <input class="form-control" type="" name="" value="{{ vaga.city }}" readonly="true">
+        </div>
+        <div class="form-group">
+          <label for="{{ vaga.id }}">Autor</label>
+          <input class="form-control" type="" name="" value="{{ vaga.author }}" readonly="true">
+        </div>
+        <div class="form-group">
+          <label for="{{ vaga.id }}">Empresa</label>
+          <input class="form-control" type="" name="" value="{{ vaga.enterprise }}" readonly="true">
+        </div>
+        <div class="form-group">
+          <label for="{{ vaga.id }}">Descrição</label>
+          <textarea class="form-control" value="" readonly="true" rows="10">{{ vaga.description }}</textarea>
+        </div>
+        <div class="form-group">
+          <label for="{{ vaga.id }}">Validade</label>
+          <input class="form-control" type="" name="" value="{{ vaga.dt_validate }}" readonly="true">
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+{% endblock %}

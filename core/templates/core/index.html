@@ -6,17 +6,6 @@
     <div class="col-md-12">
       <form class="form-group">
         <div class="input-group input-group-lg mb-3">
-          <div class="col-md-4">
-              <input type="" class="form-control" name="" >
-            </div>
-            <div class="col-md-4">
-              <input type="" class="form-control" name="">
-            </div>
-            <div class="col-md-4">
-              <input type="" class="form-control" name="">
-            </div>
-        </div>
-        <div class="input-group input-group-lg mb-3">
           <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Buscar vagas">
           <div class="input-group-prepend">
             <button class="btn btn-outline-dark" type="submit" id="inputGroup-sizing-lg">Buscar</button>
@@ -37,7 +26,7 @@
           <div class="vaga">
             <div class="row">
               <div class="col-md-12">
-                <h3>{{ vaga.title }}</h3>
+                <a href="{{ vaga.get_absolut_url }}"><h3>{{ vaga.title }}</h3></a>
               </div>
             </div>
             <div class="row">
@@ -67,24 +56,6 @@
       </form>
 
       <!-- FIM FORM -->
-      <div class="paginacao">
-        <nav aria-label="...">
-          <ul class="pagination">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active" aria-current="page">
-              <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">Next</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <!-- FIM PAGINAÇÃO -->
 
     </div>
   </div>

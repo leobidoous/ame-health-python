@@ -32,13 +32,11 @@ urlpatterns = [
     path('vagas_candidato/', VagaCandidatoListView.as_view(), name='vagas_candidato'),
     path('curriculo_candidato/', CurriculoCandidatoListView.as_view(), name='curriculo_candidato'),
     path('new_curriculo/', NovoCurriculoCreateView.as_view(), name='new_curriculo'),
-    # path('update_curriculo/', VagaCandidatoListView.as_view(), name='update_curriculo'),
 
     path('cadastro_candidato/', CadastroCandidatoCreateView.as_view(), name='cadastro_candidato'),
     path('update_candidato/', UpdateCandidatoUpdateView.as_view(), name='update_candidato'),
     path('update_password_candidato/', UpdatePasswordCandidatoFormVieW.as_view(), name='update_password_candidato'),
     path('vagas_gestor/', VagasGestorCreateView.as_view(), name='vagas_gestor'),
-    path('vaga_page/', VagaListView.as_view(), name='vaga_page'),
 
 ]
 

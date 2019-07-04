@@ -22,4 +22,4 @@ class CurriculoForm(forms.ModelForm):
 
     class Meta:
         model = CurriculoModel
-        fields = ['name', 'cpf', 'birth', 'genre', 'cel']
+        fields = ['name', 'cpf', 'birth', 'genre', 'cel', 'address', 'complement', 'city', 'state', 'cep']

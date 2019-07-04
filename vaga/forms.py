@@ -5,4 +5,4 @@ class VagaForm(ModelForm):
 
     class Meta:
         model = VagaModel
-        fields = ['title', 'state', 'city', 'enterprise', 'description', 'dt_validate']
+        fields = ['title', 'slug', 'state', 'city', 'enterprise', 'description', 'dt_validate']

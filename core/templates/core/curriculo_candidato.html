@@ -27,32 +27,56 @@
   </div>
   {% endif %}
   {% for field in object_list %}
-    <div class="curriculo">
-      <div class="form-group">
-        <label for="{{ field.auto_id }}">Nome</label>
-        <input type="text" name="" class="form-control" value="{{field.name }}" readonly="true">
-      </div>
-
-      <div class="form-group">
-        <label for="{{ field.auto_id }}">CPF</label>
-        <input type="text" name="" class="form-control" value="{{field.cpf }}" readonly="true">
-      </div>
-
-      <div class="form-group">
-        <label for="{{ field.auto_id }}">Cel</label>
-        <input type="text" name="" class="form-control" value="{{field.cel }}" readonly="true">
-      </div>
-
-      <div class="form-group">
-        <label for="{{ field.auto_id }}">Birth</label>
-        <input type="text" name="" class="form-control" value="{{field.birth }}" readonly="true">
-      </div>
-
-      <div class="form-group">
-        <label for="{{ field.auto_id }}">Genre</label>
-        <input type="text" name="" class="form-control" value="{{field.genre }}" readonly="true">
-      </div>
+  <div class="curriculo">
+    <div class="form-group">
+    <hr>
+      <label for="{{ field.auto_id }}">Nome</label>
+      <input type="text" name="" class="form-control" value="{{field.name }}" readonly="true">
     </div>
-    {% endfor %}
+
+    <div class="form-group">
+      <label for="{{ field.auto_id }}">CPF</label>
+      <input type="text" name="" class="form-control" value="{{field.cpf }}" readonly="true">
+    </div>
+
+    <div class="form-group">
+      <label for="{{ field.auto_id }}">Cel</label>
+      <input type="text" name="" class="form-control" value="{{field.cel }}" readonly="true">
+    </div>
+
+    <div class="form-group">
+      <label for="{{ field.auto_id }}">Birth</label>
+      <input type="text" name="" class="form-control" value="{{field.birth.date }}" readonly="true">
+    </div>
+
+    <div class="form-group">
+      <label for="{{ field.auto_id }}">Genre</label>
+      <input type="text" name="" class="form-control" value="{{ field.genre }}" readonly="true">
+    </div>
+
+    <hr>
+      <div class="form-group">
+        <label for="{{ field.address.auto_id }}">Endereço</label>
+      <input type="text" class="form-control" id="{{ form.complement.auto_id }}" value=" {{ field.address }}" readonly="true">        </div>
+      <div class="form-group">
+        <label for="{{ form.complement.auto_id }}">Complemento</label>
+        <input type="text" class="form-control" id="{{ form.complement.auto_id }}" value=" {{ field.complement }}" readonly="true">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="{{ form.city.auto_id }}">Cidade</label>
+          <input type="text" class="form-control" id="{{ form.complement.auto_id }}" value=" {{ field.city }}" readonly="true">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="{{ form.state.auto_id }}">Estado</label>
+          <input type="text" class="form-control" id="{{ form.complement.auto_id }}" value=" {{ field.state }}" readonly="true">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="{{ form.cep.auto_id }}">CEP</label>
+          <input type="text" class="form-control" id="{{ form.complement.auto_id }}" value=" {{ field.cep }}" readonly="true">
+        </div>
+      </div>
+  </div>
+  {% endfor %}
 </div>
 {% endblock %}
