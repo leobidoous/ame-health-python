@@ -110,6 +110,11 @@ class VagasGestorCreateView(LoginRequiredMixin, FormView):
         return super(VagasGestorCreateView, self).form_valid(form)
 
 
+class VagaListView(ListView):
+    model = VagaModel
+    template_name = 'core/vaga_page.html'
+
+
 # GERAL ###################################################################
 class PerfilTemplateView(LoginRequiredMixin, TemplateView):
     template_name = 'core/perfil.html'
