@@ -1,0 +1,33 @@
+{% extends "core/perfil.html" %}
+{% load widget_tweaks %}
+
+{% block title_perfil_gestor_content %}
+<li class="breadcrumb-item active" aria-current="page">Gerenciar Vagas</li>
+{% endblock %}
+
+{% block breadcrumb_perfil_gestor_content %}
+<a href="{% url 'core:perfil' %}" class="list-group-item">Minha Conta</a>
+<a href="{% url 'core:vagas_gestor' %}" class="list-group-item active" aria-current="page">Gerenciar Vagas</a>
+<a href="{% url 'core:update_gestor' %}" class="list-group-item">Alterar Dados</a>
+<a href="{% url 'core:update_password_gestor' %}" class="list-group-item">Alterar Senha</a>
+<a href="{% url 'core:cadastro_gestor' %}" class="list-group-item">Cadastrar Pessoa</a>
+{% endblock %}
+
+{% block perfil_gestor_content %}
+<h2>Gerenciar Vagas</h2>
+<hr>
+<div>
+  <form class="form-group" method="POST">
+    {% csrf_token %}
+    <fieldset>
+      {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.auto_id }}">{{ field.label }}</label>
+        {% render_field field class="form-control" %}
+        {% endfor %} 
+      </div>
+      <button type="submit" class="btn btn-outline-info">Submit</button>
+    </fieldset>
+  </form>
+</div>
+{% endblock %}

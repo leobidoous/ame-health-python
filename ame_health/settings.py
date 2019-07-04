@@ -21,7 +21,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '0e@f-(6y45d-wqo_6s*^%!4xdv^ew)f+d5s*5i1f(k4b91yq%a'
+SECRET_KEY = 'chave_de_criptografia'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -37,12 +37,21 @@ INSTALLED_APPS = [
 
     # libs
     'widget_tweaks',
+    'rest_framework',
 
     # apps
     'pessoa',
     'core',
     'vaga',
 ]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

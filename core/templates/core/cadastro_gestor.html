@@ -7,81 +7,36 @@
 
 {% block breadcrumb_perfil_gestor_content %}
 <a href="{% url 'core:perfil' %}" class="list-group-item">Minha Conta</a>
-<a href="#" class="list-group-item">Gerenciar Vagas</a>
+<a href="{% url 'core:vagas_gestor' %}" class="list-group-item">Gerenciar Vagas</a>
 <a href="{% url 'core:update_gestor' %}" class="list-group-item">Alterar Dados</a>
-<a href="#" class="list-group-item">Alterar Senha</a>
-<a href="#" class="list-group-item active" aria-current="page">Cadastrar Pessoa</a>
+<a href="{% url 'core:update_password_gestor' %}" class="list-group-item">Alterar Senha</a>
+<a href="{% url 'core:cadastro_gestor' %}" class="list-group-item active" aria-current="page">Cadastrar Pessoa</a>
 {% endblock %}
 
 {% block perfil_gestor_content %}
 {% if user.is_authenticated and user.type == '2' %}
-<h2 class="perfil-gestor">Cadastrar Pessoa</h2>
-<div class="content-inside">
-    <div id="cadastro-candidato">
-      <form method="POST">
-        {% csrf_token %}
-          {% for error in form.non_field_errors %}
-            <div class="alert alert-warning">{{ error }}</div>
-            {% endfor %}
-        <div class="form-group">
-          <label for="{{ form.email.auto_id }}">{{ form.email.label }}</label>
-          {% render_field form.email class="form-control" placeholder="E-mail Address"%}
-          {% for error in form.email.errors %}
-          <span class="help-block">{{ error }}</span>
-          {% endfor %}
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="{{ form.name.auto_id }}">{{ form.name.label }}</label>
-          {% render_field form.name class="form-control" placeholder="Name" %}
-          {% for error in form.name.errors %}
-          <span class="help-block">{{ error }}</span>
-          {% endfor %}
-        </div>
-        <div class="form-group">
-          <label for="{{ form.cpf.auto_id }}">{{ form.cpf.label }}</label>
-          {% render_field form.cpf class="form-control" placeholder="CPF" %}
-          {% for error in form.cpf.errors %}
-          <span class="help-block">{{ error }}</span>
-          {% endfor %}
-        </div>
-        <div class="form-group">
-          <label for="{{ form.username.auto_id }}">{{ form.username.label }}</label>
-          {% render_field form.username class="form-control" placeholder="Username" %}
-          {% for error in form.username.errors %}
-          <span class="help-block">{{ error }}</span>
-          {% endfor %}
-        </div>
-        <div class="form-group">
-          <label for="{{ form.password1.auto_id }}">{{ form.password1.label }}</label>
-          {% render_field form.password1 type="password" class="form-control" placeholder="Password" %}
-          {% for error in form.password1.errors %}
-          <span class="help-block">{{ error }}</span>
-          {% endfor %}
-        </div>
-        <div class="form-group">
-          <label for="{{ form.password2.auto_id }}">{{ form.password2.label }}</label>
-          {% render_field form.password2 type="password" class="form-control" placeholder="Confirm Password" %}
-          {% for error in form.password2.errors %}
-          <span class="help-block">{{ error }}</span>
-          {% endfor %}
-        </div>
-        <div class="form-group">
-          <label for="{{ form.type.auto_id }}">{{ form.type.label }}</label>
-          {% render_field form.type class="form-control" placeholder="Confirm Password" %}
-          {% for error in form.type.errors %}
-          <span class="help-block">{{ error }}</span>
-          {% endfor %}
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
+<div class="row">
+  <div class="col-md-10">
+    <h2>Cadastrar Pessoa</h2>
   </div>
-  {% else  %}
-  <div class="content-inside">
-    <div>
-    <a class="btn btn-outline-info btn-lg btn-block" href="{% url 'core:login' %}">Você está deslogado. Realizar login?</a>
-    </div>
+  <div class="col-md-2" align="center">
+    <a href="{% url 'pessoa:rest_pessoas' %}" class="btn btn-info">VIA API REST</a>
   </div>
+</div>
+<div>
+  <form class="form-group" method="POST">
+    {% csrf_token %}
+    <fieldset>
+      <hr>
+      {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.auto_id }}">{{ field.label }}</label>
+        {% render_field field class="form-control" %}
+        {% endfor %} 
+      </div>
+      <button type="submit" class="btn btn-outline-info">Submit</button>
+    </fieldset>
+  </form>
+</div>
 {% endif %}  
 {% endblock %}

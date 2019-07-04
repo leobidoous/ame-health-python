@@ -20,7 +20,8 @@ app_name = 'ame_health'
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', include('core.urls', namespace='core')),
-
     path('vaga/', include('vaga.urls', namespace='vaga')),
+    path('pessoa/', include('pessoa.urls', namespace='pessoa')),
+
 ]
 

@@ -1,0 +1,58 @@
+{% extends "core/perfil.html" %}
+{% load widget_tweaks %}
+
+{% block title_perfil_candidato_content %}
+<li class="breadcrumb-item active" aria-current="page">Currículo</li>
+{% endblock %}
+
+{% block breadcrumb_perfil_candidato_content %}
+<a href="{% url 'core:perfil' %}" class="list-group-item">Minha Conta</a>
+<a href="{% url 'core:vagas_candidato' %}" class="list-group-item">Gerenciar Vagas</a>
+<a href="{% url 'core:update_candidato' %}" class="list-group-item">Alterar Dados</a>
+<a href="{% url 'core:update_password_candidato' %}" class="list-group-item ">Alterar Senha</a>
+<a href="{% url 'core:curriculo_candidato' %}" class="list-group-item active" aria-current="page">Currículo</a>
+{% endblock %}
+
+{% block perfil_candidato_content %}
+<h2>Currículo</h2>
+<hr>
+<div>
+  {% if not object_list %}
+  <div class="vaga">
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Nenhum currículo cadastrado. <a href="{% url 'core:new_curriculo' %}">Cadastre aqui!</a> </h4>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% for field in object_list %}
+    <div class="curriculo">
+      <div class="form-group">
+        <label for="{{ field.auto_id }}">Nome</label>
+        <input type="text" name="" class="form-control" value="{{field.name }}" readonly="true">
+      </div>
+
+      <div class="form-group">
+        <label for="{{ field.auto_id }}">CPF</label>
+        <input type="text" name="" class="form-control" value="{{field.cpf }}" readonly="true">
+      </div>
+
+      <div class="form-group">
+        <label for="{{ field.auto_id }}">Cel</label>
+        <input type="text" name="" class="form-control" value="{{field.cel }}" readonly="true">
+      </div>
+
+      <div class="form-group">
+        <label for="{{ field.auto_id }}">Birth</label>
+        <input type="text" name="" class="form-control" value="{{field.birth }}" readonly="true">
+      </div>
+
+      <div class="form-group">
+        <label for="{{ field.auto_id }}">Genre</label>
+        <input type="text" name="" class="form-control" value="{{field.genre }}" readonly="true">
+      </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

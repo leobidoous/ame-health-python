@@ -1,7 +1,7 @@
 # coding=utf-8
-from django.db import models
-from django.core import validators
 from django.contrib.auth.models import AbstractBaseUser, UserManager, PermissionsMixin
+from django.core import validators
+from django.db import models
 import re
 
 
@@ -24,9 +24,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField('Active', default=True)
     date_joined = models.DateTimeField('Date Joined', auto_now_add=True)
 
-    types = (('1', 'Candidato'),
-             ('2', 'Gestor'))
-    type = models.CharField('Type', max_length=10, choices=types, default='1', blank=True)
+    types = (('Candidato', 'Candidato'),
+             ('Gestor', 'Gestor'))
+    type = models.CharField('Type', max_length=10, choices=types, blank=True)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['name', 'cpf', 'email']
@@ -48,8 +48,15 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 class CurriculoModel(models.Model):
+    sexes = (('Masculino', 'Masculino'),
+             ('Feminino', 'Feminino'),
+             ('Outro', 'Outro'))
     name = models.CharField('Nome', max_length=255)
     cpf = models.CharField('CPF', max_length=14, unique=True)
+    cel = models.CharField('Celular', max_length=14)
+    birth = models.IntegerField('Idade')
+    genre = models.CharField('Gênero', max_length=10, choices=sexes, blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     dt_create = models.DateTimeField('Criado em:', auto_now_add=True)
     dt_update = models.DateTimeField('Atualizado em:', auto_now=True)
 
@@ -60,3 +67,4 @@ class CurriculoModel(models.Model):
 
     def __str__(self):
         return self.name
+

@@ -6,11 +6,23 @@
     <div class="col-md-12">
       <form class="form-group">
         <div class="input-group input-group-lg mb-3">
+          <div class="col-md-4">
+              <input type="" class="form-control" name="" >
+            </div>
+            <div class="col-md-4">
+              <input type="" class="form-control" name="">
+            </div>
+            <div class="col-md-4">
+              <input type="" class="form-control" name="">
+            </div>
+        </div>
+        <div class="input-group input-group-lg mb-3">
           <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Buscar vagas">
           <div class="input-group-prepend">
             <button class="btn btn-outline-dark" type="submit" id="inputGroup-sizing-lg">Buscar</button>
           </div>
         </div>
+        <hr style="background-color: #000; border: 1px solid;">
         <div id="vagas">
           {% if not object_list %}
           <div class="vaga">

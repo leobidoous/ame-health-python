@@ -8,14 +8,17 @@ html, body {height:100%;}
 #content {
     min-height:100%;
     width:100%;
+    padding: 20px;
+	background-color: #d3d3d3;
+
 }
 
 .content-inside 
 {
-	overflow:hidden;
-	margin-top: 20px;
+	/*overflow:hidden;*/
+	/*margin-top: 20px;
 	padding: 40px 40px 40px 40px;
-	margin: 20px;
+	margin: 20px;*/
 }
 
 .cadastro-core
@@ -42,18 +45,18 @@ html, body {height:100%;}
 /* footer */
 footer
 {
-	margin-top: 20px;
+	opacity: 0.9;
+	color: #fff;
 	position: relative;
-	padding-top: 15px;
+	padding-top: 20px;
     bottom: 0px;
     width: 100%;
-    background-color: #d3d3d3;
+    background-color: #000;
 }
 
 .content-inside > .cabecalho
 {
 	align-items: center;
-	background-color: #d3d3d3;
 }
 
 .perfil-gestor
@@ -63,11 +66,9 @@ footer
 	padding: 10px;
 }
 
-.perfil-candidato
+.minha-conta
 {
-	border: 1px solid;
-	background-color: #d3d3d3;
-	padding: 10px;
+	padding: 0;
 }
 
 #login

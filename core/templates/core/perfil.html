@@ -3,76 +3,140 @@
 
 {% block content %}
 {% if user.is_authenticated and user.type == '1' or user.type == '' %}
-<div class="content-inside">
-  	<div class="perfil-candidato">
-  		<div class="row">
-  			<div class="col-md-12">
-  				<nav aria-label="breadcrumb">
-  				  <ol class="breadcrumb">
-  				    <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
-  				    {% block title_perfil_candidato_content %}
-  				    <li class="breadcrumb-item active" aria-current="page">Minha Conta</li>
-  				    {% endblock %}
-  				  </ol>
-  				</nav>
-  			</div>
-  		</div>
-
-  		<div class="row">
-  			<div class="col-md-4">
-  	            <div class="list-group">
-  	            	{% block breadcrumb_perfil_candidato_content %}
-	  	            <a href="{% url 'core:perfil' %}" class="list-group-item active">Minha Conta</a>
-	  	            <a href="#" class="list-group-item">Gerenciar Vagas</a>
-	  	            <a href="{% url 'core:update_candidato' %}" class="list-group-item">Alterar Dados</a>
-	  	            <a href="{% url 'core:update_password_candidato' %}" class="list-group-item">Alterar Senha</a>
-	  	            <a href="#" class="list-group-item">Currículo</a>
-  				    {% endblock %}
-  	            </div>
-  	        </div>
-  	        <div class="col-md-8 ">
-  	        	{% block perfil_candidato_content %}
-  	            <h1 class="perfil-gestor">Bem vindo(a), {{user.name}}!</h1>
-  	        	{% endblock %}
-  	        </div>
-  		</div>
-    </div>
-</div>
-{% elif user.is_authenticated and user.type == '2' %}
-<div class="content-inside">
-    <div class="perfil-gestor">
-		<div class="row">
-			<div class="col-md-12">
-				<nav aria-label="breadcrumb">
-				  <ol class="breadcrumb">
-				    <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
-				    {% block title_perfil_gestor_content %}
-				    <li class="breadcrumb-item active" aria-current="page">Minha Conta</li>
-				    {% endblock %}
-				  </ol>
-				</nav>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-4">
-	            <div class="list-group">
-	            	{% block breadcrumb_perfil_gestor_content %}
-	  	            <a href="{% url 'core:perfil' %}" class="list-group-item active">Minha Conta</a>
-	  	            <a href="#" class="list-group-item">Gerenciar Vagas</a>
-	  	            <a href="{% url 'core:update_gestor' %}" class="list-group-item">Alterar Dados</a>
-	  	            <a href="{% url 'core:update_password_candidato' %}" class="list-group-item">Alterar Senha</a>
-	  	            <a href="{% url 'core:cadastro_gestor' %}" class="list-group-item">Cadastrar Pessoa</a>
-  				    {% endblock %}
-	            </div>
-	        </div>
-	        <div class="col-md-8 ">
-	        	{% block perfil_gestor_content %}
-	            <h2 class="perfil-gestor">Bem vindo(a), {{user.name}}!</h2>
-	        	{% endblock %}
-	        </div>
+<div id="perfil-candidato">
+	<div class="row">
+		<div class="col-md-12">
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
+			    {% block title_perfil_candidato_content %}
+			    <li class="breadcrumb-item active" aria-current="page">Minha Conta</li>
+			    {% endblock %}
+			  </ol>
+			</nav>
 		</div>
 	</div>
+	<!-- fim da row -->
+
+	<div class="row">
+		<div class="col-md-3">
+            <div class="list-group">
+            	{% block breadcrumb_perfil_candidato_content %}
+	            <a href="{% url 'core:perfil' %}" class="list-group-item active">Minha Conta</a>
+	            <a href="{% url 'core:vagas_candidato' %}" class="list-group-item">Gerenciar Vagas</a>
+	            <a href="{% url 'core:update_candidato' %}" class="list-group-item">Alterar Dados</a>
+	            <a href="{% url 'core:update_password_candidato' %}" class="list-group-item">Alterar Senha</a>
+	            <a href="{% url 'core:curriculo_candidato' %}" class="list-group-item">Currículo</a>
+			    {% endblock %}
+            </div>
+        </div>
+        <div class="col-md-9">
+        	{% block perfil_candidato_content %}
+            <h2 class="minha-conta">Bem vindo(a), {{user.name}}!</h2>
+            <hr>
+
+            <div>
+            	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            	
+            	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+
+        	{% endblock %}
+        </div>
+	</div>
+	<!-- fim da row -->
+</div>
+{% elif user.is_authenticated and user.type == '2' %}
+<div id="perfil-gestor">
+	<div class="row">
+		<div class="col-md-12">
+			<nav aria-label="breadcrumb">
+			  <ol class="breadcrumb">
+			    <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
+			    {% block title_perfil_gestor_content %}
+			    <li class="breadcrumb-item active" aria-current="page">Minha Conta</li>
+			    {% endblock %}
+			  </ol>
+			</nav>
+		</div>
+	</div>
+	<!-- fim da row -->
+
+	<div class="row">
+		<div class="col-md-3">
+            <div class="list-group">
+            	{% block breadcrumb_perfil_gestor_content %}
+	            <a href="{% url 'core:perfil' %}" class="list-group-item active">Minha Conta</a>
+	            <a href="{% url 'core:vagas_gestor' %}" class="list-group-item">Gerenciar Vagas</a>
+	            <a href="{% url 'core:update_gestor' %}" class="list-group-item">Alterar Dados</a>
+	            <a href="{% url 'core:update_password_gestor' %}" class="list-group-item">Alterar Senha</a>
+	            <a href="{% url 'core:cadastro_gestor' %}" class="list-group-item">Cadastrar Pessoa</a>
+			    {% endblock %}
+            </div>
+        </div>
+        <div class="col-md-9">
+        	{% block perfil_gestor_content %}
+            <h2 class="minha-conta">Bem vindo(a), {{user.name}}!</h2>
+            <hr>
+
+            <div>
+            	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            	
+            	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+            	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+
+        	{% endblock %}
+        </div>
+	</div>
+	<!-- fim da row -->
 </div>
 {% else  %}
 <div class="content-inside">

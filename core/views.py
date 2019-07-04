@@ -4,13 +4,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from pessoa.forms import UserAdminCreationForm
 from django.urls import reverse_lazy
 from vaga.models import VagaModel
-from pessoa.models import User
+from vaga.forms import VagaForm
+from pessoa.forms import CurriculoForm
+from pessoa.models import User, CurriculoModel
 
 
 # Create your views here.
 class HomeListView(ListView):
     model = VagaModel
-    paginate_by = 5
+    # paginate_by = 5
     template_name = 'core/index.html'
 
 # CANDIDATO VIEW ###################################################################
@@ -24,7 +26,7 @@ class CadastroCandidatoCreateView(CreateView):
 class UpdateCandidatoUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     template_name = 'core/update_candidato.html'
-    fields = ['name', 'email']
+    fields = ['name', 'email', 'cpf']
     success_url = reverse_lazy('core:perfil')
 
     def get_object(self):
@@ -42,6 +44,30 @@ class UpdatePasswordCandidatoFormVieW(LoginRequiredMixin, FormView):
         return kwargs
 
 
+class VagaCandidatoListView(ListView):
+    model = VagaModel
+    paginate_by = 5
+    template_name = 'core/gerenciar_vagas_candidato.html'
+
+
+class CurriculoCandidatoListView(ListView):
+    model = CurriculoModel
+    template_name = 'core/curriculo_candidato.html'
+
+
+class NovoCurriculoCreateView(LoginRequiredMixin, FormView):
+    form_class = CurriculoForm
+    template_name = 'core/novo_curriculo.html'
+    success_url = reverse_lazy('core:perfil')
+
+    def form_valid(self, form):
+        print(self.request.user)
+        curriculo = form.save(commit=False)
+        curriculo.author = self.request.user
+        form.save()
+        return super(NovoCurriculoCreateView, self).form_valid(form)
+
+
 # GESTOR VIEW ###################################################################
 class CadastroGestorCreateView(LoginRequiredMixin, CreateView):
     form_class = UserAdminCreationForm
@@ -54,7 +80,7 @@ class CadastroGestorCreateView(LoginRequiredMixin, CreateView):
 class UpdateGestorUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     template_name = 'core/update_gestor.html'
-    fields = ['name', 'email', 'type']
+    fields = ['name', 'email', 'cpf', 'type']
     success_url = reverse_lazy('core:perfil')
 
     def get_object(self):
@@ -72,8 +98,18 @@ class UpdatePasswordGestorFormVieW(LoginRequiredMixin, FormView):
         return kwargs
 
 
+class VagasGestorCreateView(LoginRequiredMixin, FormView):
+    form_class = VagaForm
+    template_name = 'core/gerenciar_vagas_gestor.html'
+    success_url = reverse_lazy('core:perfil')
+
+    def form_valid(self, form):
+        vaga = form.save(commit=False)
+        vaga.author = self.request.user
+        form.save()
+        return super(VagasGestorCreateView, self).form_valid(form)
+
+
 # GERAL ###################################################################
 class PerfilTemplateView(LoginRequiredMixin, TemplateView):
     template_name = 'core/perfil.html'
-
-

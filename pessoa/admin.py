@@ -3,7 +3,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
-from pessoa.models import User
+from pessoa.models import User, CurriculoModel
 from pessoa.forms import UserAdminCreationForm, UserAdminForm
 
 
@@ -18,7 +18,7 @@ class UserAdmin(BaseUserAdmin):
     form = UserAdminForm
     fieldsets = (
         (None, {
-            'fields': ('username', 'email', 'type')
+            'fields': ('username', 'email', 'type', 'password')
         }),
         ('Informações Básicas', {
             'fields': ('name', 'last_login')
@@ -36,3 +36,4 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.register(User, UserAdmin)
+admin.site.register(CurriculoModel)

@@ -14,33 +14,33 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
-from vaga.models import VagaModel
-from vaga.views import VagasView
+from pessoa.models import User
+from pessoa.views import PessoaView
 from rest_framework import routers, serializers, viewsets
 
 # Serializers define the API representation.
-class VagaSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = VagaModel
+        model = User
         fields = ('title', 'state', 'city', 'enterprise', 'description', 'dt_validate')
 
 # ViewSets define the view behavior.
-class VagaViewSet(viewsets.ModelViewSet):
-    queryset = VagaModel.objects.all()
-    serializer_class = VagaSerializer
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
-router.register(r'vagas', VagaViewSet)
+router.register(r'users', UserViewSet)
 
 
-app_name = 'vaga'
+app_name = 'pessoa'
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     url('', include(router.urls)),
     url('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url('rest_vagas/', VagasView.as_view(), name='rest_vagas')
+    url('rest_pessoas/', PessoaView.as_view(), name='rest_pessoas')
 ]
 

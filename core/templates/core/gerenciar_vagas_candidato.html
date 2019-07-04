@@ -1,0 +1,49 @@
+{% extends "core/perfil.html" %}
+{% load widget_tweaks %}
+
+{% block title_perfil_candidato_content %}
+<li class="breadcrumb-item active" aria-current="page">Gerenciar Vagas</li>
+{% endblock %}
+
+{% block breadcrumb_perfil_candidato_content %}
+<a href="{% url 'core:perfil' %}" class="list-group-item">Minha Conta</a>
+<a href="{% url 'core:vagas_candidato' %}" class="list-group-item active" aria-current="page"">Gerenciar Vagas</a>
+<a href="{% url 'core:update_candidato' %}" class="list-group-item">Alterar Dados</a>
+<a href="{% url 'core:update_password_candidato' %}" class="list-group-item">Alterar Senha</a>
+<a href="{% url 'core:curriculo_candidato' %}" class="list-group-item">Currículo</a>
+{% endblock %}
+
+{% block perfil_candidato_content %}
+<h2>Gerenciar Vagas</h2>
+<hr>
+
+<div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+{% endblock %}

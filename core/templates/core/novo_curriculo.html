@@ -1,0 +1,62 @@
+{% extends "core/perfil.html" %}
+{% load widget_tweaks %}
+
+{% block title_perfil_candidato_content %}
+<li class="breadcrumb-item active" aria-current="page">Novo Currículo</li>
+{% endblock %}
+
+{% block breadcrumb_perfil_candidato_content %}
+<a href="{% url 'core:perfil' %}" class="list-group-item">Minha Conta</a>
+<a href="{% url 'core:vagas_candidato' %}" class="list-group-item" aria-current="page">Gerenciar Vagas</a>
+<a href="{% url 'core:update_candidato' %}" class="list-group-item">Alterar Dados</a>
+<a href="{% url 'core:update_password_candidato' %}" class="list-group-item">Alterar Senha</a>
+<a href="{% url 'core:curriculo_candidato' %}" class="list-group-item active" aria-current="page">Currículo</a>
+{% endblock %}
+
+{% block perfil_candidato_content %}
+<h2>Novo Currículo</h2>
+<hr>
+<div>
+  <form class="form-group" method="POST">
+    {% csrf_token %}
+    <fieldset>
+      {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.auto_id }}">{{ field.label }}</label>
+        {% render_field field class="form-control" %}
+        {% for error in field.errors %}
+          <span class="help-block">{{ error }}</span>
+          {% endfor %}
+      {% endfor %} 
+      </div>
+      <hr>
+        <div class="form-group">
+          <label for="inputAddress">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="form-group">
+          <label for="inputAddress2">Address 2</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" id="inputCity">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <select id="inputState" class="form-control">
+              <option selected>Choose...</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Zip</label>
+            <input type="text" class="form-control" id="inputZip">
+          </div>
+        </div>
+      <button type="submit" class="btn btn-outline-info">Submit</button>
+    </fieldset>
+  </form>
+</div>
+{% endblock %}
