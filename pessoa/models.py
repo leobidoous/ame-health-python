@@ -54,7 +54,7 @@ class CurriculoModel(models.Model):
     name = models.CharField('Nome', max_length=255)
     cpf = models.CharField('CPF', max_length=14, unique=True)
     cel = models.CharField('Celular', max_length=14)
-    birth = models.IntegerField('Idade')
+    birth = models.DateTimeField('Nascimento')
     genre = models.CharField('Gênero', max_length=10, choices=sexes, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     dt_create = models.DateTimeField('Criado em:', auto_now_add=True)
